@@ -17,21 +17,16 @@ public class Ordenador implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while (true) {
-                int tiempoEspera = (random.nextInt(31) + 30); 
-                Thread.sleep(tiempoEspera * Oficina.TIME_SCALE);
+        while (true) {
+		    
 
-                boolean esColor = random.nextBoolean();
-                String tipo = esColor ? "COLOR" : "B/N";
-                ColaImpresion colaDestino = esColor ? colaColor : colaBN;
+		    boolean esColor = random.nextBoolean();
+		    String tipo = esColor ? "COLOR" : "B/N";
+		    ColaImpresion colaDestino = esColor ? colaColor : colaBN;
 
-                Trabajo nuevoTrabajo = new Trabajo(this.nombre, tipo);
+		    Trabajo nuevoTrabajo = new Trabajo(this.nombre, tipo);
 
-                colaDestino.agregarTrabajo(nuevoTrabajo);
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+		    colaDestino.agregarTrabajo(nuevoTrabajo);
+		}
     }
 }
