@@ -11,6 +11,7 @@ public class ColaImpresion {
     public ColaImpresion(String nombre) {
         this.nombreCola = nombre;
         this.cola = new ArrayList<>(); 
+        this.semaforoTrabajosDisponibles = new Semaphore(0);
     }
 
     public void agregarTrabajo(Trabajo trabajo) {
